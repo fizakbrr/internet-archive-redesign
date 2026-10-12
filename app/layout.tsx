@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import localFont from "next/font/local";
+import { Footer } from "@/components/site/footer";
+import { Header } from "@/components/site/header";
+import { OfflineBanner } from "@/components/site/offline-banner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const serif = Source_Serif_4({ variable: "--font-source-serif", subsets: ["latin"] });
@@ -41,7 +45,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} ${sansExt.variable} ${mono.variable}`}>
-      <body className="flex min-h-dvh flex-col">{children}</body>
+      <body className="flex min-h-dvh flex-col">
+        <TooltipProvider delay={300}>
+          <a
+            href="#main"
+            className="fixed top-2 left-2 z-50 flex h-11 -translate-y-20 items-center rounded-md bg-primary px-4 type-label text-on-primary focus:translate-y-0"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <OfflineBanner />
+          <div id="main" tabIndex={-1} className="flex flex-1 flex-col outline-none">
+            {children}
+          </div>
+          <Footer />
+        </TooltipProvider>
+      </body>
     </html>
   );
 }
