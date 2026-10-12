@@ -6,7 +6,7 @@ This project is not affiliated with or endorsed by the Internet Archive. "Intern
 
 ## Status
 
-Design phase. The design system, wireframes and mockups are being built in Figma. Application code follows once the designs are approved.
+Working concept. The design system, wireframes and mockups are in Figma. The app has the home, search, item, collection, Wayback and favorites pages, running on live archive.org data.
 
 ## What changes
 
@@ -16,12 +16,12 @@ Design phase. The design system, wireframes and mockups are being built in Figma
 - Labeled navigation, one heading per page, keyboard support and WCAG AA contrast.
 - Mobile-first layouts tested at 375, 768 and 1280 px.
 
-## Planned stack
+## Stack
 
 - Next.js (App Router) with TypeScript
-- Tailwind CSS v4 and shadcn/ui on Radix primitives
+- Tailwind CSS v4 and shadcn/ui on Base UI primitives
 - Lucide icons
-- Native `<video>` and `<audio>` players; books open in the Archive's own embed
+- Custom controls over `<video>` and `<audio>`; books open in the Archive's own embed
 
 ## Data sources
 
@@ -37,7 +37,16 @@ The public APIs have no third-party login, so signing in, favorites, reviews, up
 
 ## Setup
 
-There is no application code yet. Setup steps come with the first commit of the app.
+Requires Node.js 20 or later.
+
+```bash
+npm install
+npm run dev
+```
+
+Then open http://localhost:3000.
+
+Checks: `npm run lint`, `npm run typecheck`, `npm test` and `npm run build`.
 
 ## Branches
 
